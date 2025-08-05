@@ -2,13 +2,12 @@
 
 Welcome to my portfolio! This is a modern, fully responsive, and animated web portfolio showcasing my skills as a **Full Stack Developer**, using the latest web technologies and tools.
 
-![screenshot](./public/images/preview.png)
 
 ---
 
 ## 🌐 Live Demo
 
-🔗 [Visit Portfolio](https://your-portfolio-url.com)
+🔗 [Visit Portfolio](https://cvlab.vercel.app/)
 
 ---
 
