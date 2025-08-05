@@ -4,6 +4,20 @@ import { motion } from "framer-motion";
 
 // Your projects array
 const projects = [
+     {
+        title: "ShoppyGlobal",
+        tech: ["HTML", "CSS", "JS", "LocalStorage", "react"],
+        link: "https://shoppy-global-cv.vercel.app/",
+        image: "/images/project8.png",
+        description: "ShoppyGlobe is a fully functional e-commerce frontend application built with React, Redux Toolki, and Tailwind CSS It features cart management, product filtering, sorting, pagination, and a full checkout flow.",
+    },
+    {
+        title: "BMD",
+        tech: ["HTML", "CSS", "JS", "LocalStorage", "react"],
+        link: "https://bms123cv.vercel.app/",
+        image: "/images/project7.png",
+        description: "This is a responsive and interactive Book Management Dashboard built with React, Redux Toolkit, and Tailwind CSS. It allows users to browse, search, categorize, and manage books, as well as add them to a cart for easy tracking.",
+    },
     {
         title: "SMS",
         tech: ["HTML", "CSS", "JS", "LocalStorage"],
