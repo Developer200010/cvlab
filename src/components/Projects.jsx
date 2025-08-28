@@ -13,7 +13,7 @@ const projects = [
     },
     {
         title: "QuirkLog",
-        tech: ["HTML", "Tailwind", "React", "Nodejs", "expressjs","Mongodb","Cloudinary"],
+        tech: ["HTML", "Tailwind", "React", "Node.js", "express.js","Mongodb","Cloudinary"],
         link: "https://quirklogcv.vercel.app/",
         image: "/images/project9.png",
         description: "QuirkLog – A modern blog platform to explore, create, and share insightful content.",
