@@ -4,6 +4,20 @@ import { motion } from "framer-motion";
 
 // Your projects array
 const projects = [
+    {
+        title: "AceWithAi",
+        tech: ["HTML", "Tailwind", "React", "Node.js", "Express.js","Mongodb","cookie-parser", "JWT"],
+        link: "https://awacv.vercel.app/",
+        image: "/images/project10.png",
+        description: "AceWithAI is a modern, interactive web application designed to help users practice, evaluate, and track their progress in answering questions across various topics. It provides a seamless learning experience through a responsive user interface, secure authentication, and personalized history tracking.",
+    },
+    {
+        title: "QuirkLog",
+        tech: ["HTML", "Tailwind", "React", "Nodejs", "expressjs","Mongodb","Cloudinary"],
+        link: "https://quirklogcv.vercel.app/",
+        image: "/images/project9.png",
+        description: "QuirkLog – A modern blog platform to explore, create, and share insightful content.",
+    },
      {
         title: "ShoppyGlobal",
         tech: ["HTML", "CSS", "JS", "LocalStorage", "react"],
