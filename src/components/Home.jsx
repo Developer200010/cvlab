@@ -119,7 +119,7 @@ const Home = () => {
             className="flex items-center justify-center md:justify-start space-x-4 sm:space-x-6 pt-4 sm:pt-6"
           >
             <a
-              href="https://github.com/"
+              href="https://github.com/Developer200010"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 bg-white/10 rounded-full hover:bg-amber-400 hover:text-black transition-all duration-300 shadow-md hover:shadow-amber-400/40"
@@ -127,7 +127,7 @@ const Home = () => {
               <Github size={22} />
             </a>
             <a
-              href="https://linkedin.com/"
+              href="https://www.linkedin.com/in/chandan-vishwakarma-38ba942bb/"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 bg-white/10 rounded-full hover:bg-amber-400 hover:text-black transition-all duration-300 shadow-md hover:shadow-amber-400/40"
@@ -135,7 +135,7 @@ const Home = () => {
               <Linkedin size={22} />
             </a>
             <a
-              href="mailto:your@email.com"
+              href="mailto:chandanvishw11002@gmail.com"
               className="p-3 bg-white/10 rounded-full hover:bg-amber-400 hover:text-black transition-all duration-300 shadow-md hover:shadow-amber-400/40"
             >
               <Mail size={22} />
