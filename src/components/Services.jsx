@@ -6,6 +6,7 @@ import {
   Smartphone,
   TerminalSquare,
   Cloud,
+  Rocket,
 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -32,7 +33,7 @@ const fadeUp = {
   visible: (i = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.1, duration: 0.5 },
+    transition: { delay: i * 0.12, duration: 0.6, ease: "easeOut" },
   }),
 };
 
@@ -42,83 +43,111 @@ const Services = () => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      className="min-h-screen bg-gray-900 text-white p-8"
+      className="min-h-screen bg-gradient-to-b from-gray-900 via-black to-gray-900 text-white py-16 sm:py-20 px-4 sm:px-6"
     >
+      {/* ===== HEADER ===== */}
       <motion.div
         variants={fadeUp}
-        className="max-w-7xl mx-auto text-center mb-12"
+        className="max-w-4xl mx-auto text-center mb-16 sm:mb-20 px-2"
       >
-        <h2 className="text-4xl font-bold mb-4 text-amber-400">
-          🚀 My Services
+        <h2 className="text-4xl sm:text-5xl font-extrabold mb-4 bg-gradient-to-r from-amber-400 to-teal-400 bg-clip-text text-transparent">
+          My Development Expertise
         </h2>
-        <p className="text-gray-300 text-lg">
-          I specialize in building robust web solutions using modern technologies
-          — from elegant frontends to powerful backend systems.
+        <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
+          I craft <span className="text-amber-400">frontend experiences</span> that delight users and
+          <span className="text-teal-400"> backend systems</span> that scale effortlessly.
         </p>
       </motion.div>
 
-      {/* Tech Cards */}
-      <div className="grid md:grid-cols-2 gap-10">
-        {/* Frontend */}
+      {/* ===== Service Cards ===== */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-12 max-w-7xl mx-auto px-2">
+        {/* FRONTEND CARD */}
         <motion.div
           variants={fadeUp}
           custom={0}
-          className="bg-gray-800 p-6 rounded-2xl shadow-lg hover:scale-105 transition duration-500"
+          className="bg-white/5 border border-white/10 p-6 sm:p-8 rounded-3xl shadow-2xl hover:shadow-amber-500/30 transition-all duration-500 hover:scale-[1.03] backdrop-blur-sm"
         >
-          <h3 className="text-2xl font-semibold mb-4 text-teal-400">
-            Frontend Development
-          </h3>
-          <ul className="grid grid-cols-2 gap-4">
+          <div className="flex items-center space-x-3 mb-4">
+            <Smartphone className="text-amber-400 w-7 h-7 sm:w-8 sm:h-8" />
+            <h3 className="text-2xl sm:text-3xl font-bold text-amber-400">
+              Frontend Development
+            </h3>
+          </div>
+          <p className="text-gray-300 mb-6 text-sm sm:text-base leading-relaxed">
+            Building seamless, responsive, and pixel-perfect UIs with
+            cutting-edge tools and libraries.
+          </p>
+
+          <ul className="grid grid-cols-2 gap-3 sm:gap-4">
             {frontendTech.map((tech, idx) => (
               <motion.li
                 key={idx}
                 custom={idx}
                 variants={fadeUp}
-                className="flex items-center space-x-3 bg-gray-700 p-3 rounded-xl hover:bg-teal-600 transition"
+                className="flex items-center space-x-3 bg-gray-800/60 p-3 rounded-xl hover:bg-amber-500/20 hover:translate-x-1 transition-all duration-300"
               >
                 <span className="text-amber-400">{tech.icon}</span>
-                <span className="text-white font-medium">{tech.name}</span>
+                <span className="font-medium text-sm sm:text-base">
+                  {tech.name}
+                </span>
               </motion.li>
             ))}
           </ul>
         </motion.div>
 
-        {/* Backend */}
+        {/* BACKEND CARD */}
         <motion.div
           variants={fadeUp}
           custom={1}
-          className="bg-gray-800 p-6 rounded-2xl shadow-lg hover:scale-105 transition duration-500"
+          className="bg-white/5 border border-white/10 p-6 sm:p-8 rounded-3xl shadow-2xl hover:shadow-teal-500/30 transition-all duration-500 hover:scale-[1.03] backdrop-blur-sm"
         >
-          <h3 className="text-2xl font-semibold mb-4 text-teal-400">
-            Backend Development
-          </h3>
-          <ul className="grid grid-cols-2 gap-4">
+          <div className="flex items-center space-x-3 mb-4">
+            <Server className="text-teal-400 w-7 h-7 sm:w-8 sm:h-8" />
+            <h3 className="text-2xl sm:text-3xl font-bold text-teal-400">
+              Backend Development
+            </h3>
+          </div>
+          <p className="text-gray-300 mb-6 text-sm sm:text-base leading-relaxed">
+            Designing fast, secure, and scalable APIs & databases to power
+            modern web applications.
+          </p>
+
+          <ul className="grid grid-cols-2 gap-3 sm:gap-4">
             {backendTech.map((tech, idx) => (
               <motion.li
                 key={idx}
                 custom={idx}
                 variants={fadeUp}
-                className="flex items-center space-x-3 bg-gray-700 p-3 rounded-xl hover:bg-amber-500 transition"
+                className="flex items-center space-x-3 bg-gray-800/60 p-3 rounded-xl hover:bg-teal-500/20 hover:translate-x-1 transition-all duration-300"
               >
-                <span className="text-white">{tech.icon}</span>
-                <span className="text-white font-medium">{tech.name}</span>
+                <span className="text-teal-400">{tech.icon}</span>
+                <span className="font-medium text-sm sm:text-base">
+                  {tech.name}
+                </span>
               </motion.li>
             ))}
           </ul>
         </motion.div>
       </div>
 
-      {/* Call to Action */}
-      <motion.div variants={fadeUp} custom={6} className="mt-16 text-center">
-        <p className="text-lg text-gray-400 mb-4">
-          Looking for someone who can bring your ideas to life?
+      {/* ===== Call to Action ===== */}
+      <motion.div
+        variants={fadeUp}
+        custom={5}
+        className="mt-20 sm:mt-24 text-center max-w-2xl mx-auto px-2"
+      >
+        <p className="text-base sm:text-lg text-gray-400 mb-6 leading-relaxed">
+          Have an idea? Let’s turn it into a world-class product.
         </p>
         <motion.button
-          whileHover={{ scale: 1.05 }}
+          whileHover={{
+            scale: 1.08,
+            boxShadow: "0px 0px 20px rgba(251,191,36,0.6)",
+          }}
           whileTap={{ scale: 0.95 }}
-          className="px-6 py-3 bg-amber-400 text-gray-900 rounded-xl font-semibold hover:bg-amber-500 transition duration-300 shadow-lg"
+          className="px-8 sm:px-10 py-3 sm:py-4 bg-gradient-to-r from-amber-400 to-teal-400 text-gray-900 rounded-full font-bold text-base sm:text-lg shadow-xl hover:shadow-amber-400/40 transition-all duration-300 flex items-center justify-center gap-2 mx-auto"
         >
-          Let’s Build Something Amazing
+          <Rocket className="w-5 h-5" /> Let’s Build Something Amazing
         </motion.button>
       </motion.div>
     </motion.section>

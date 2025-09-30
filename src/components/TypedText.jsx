@@ -9,11 +9,16 @@ const TypedText = ({ strings, className }) => {
   useEffect(() => {
     typed.current = new Typed(el.current, {
       strings,
-      typeSpeed: 60,
-      backSpeed: 30,
+      typeSpeed: 45,         // ✨ Slower, more human typing
+      backSpeed: 25,         // ✨ Smooth backspacing
+      startDelay: 300,       // ⏱ Little pause before typing starts
+      backDelay: 1500,       // ⏱ Pause before deleting
+      smartBackspace: true,  // ✅ Only erase what's different
       loop: true,
-      backDelay: 1000,
-      cursorChar: "|",
+      shuffle: false,        // 🔁 Keep order consistent
+      cursorChar: "|",       // ✨ Custom blinking cursor
+      fadeOut: false,        // ❌ Disable fade (can look glitchy sometimes)
+      showCursor: true,
     });
 
     return () => {
@@ -21,7 +26,12 @@ const TypedText = ({ strings, className }) => {
     };
   }, [strings]);
 
-  return <span ref={el} className={className}></span>;
+  return (
+    <span
+      ref={el}
+      className={`${className} typed-text`}
+    ></span>
+  );
 };
 
 export default TypedText;
