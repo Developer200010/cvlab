@@ -7,6 +7,7 @@ import Home from "./components/Home";
 import Services from "./components/Services";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
+import Certificate from "./components/Certificate";
 
 function App() {
   const location = useLocation();
@@ -32,6 +33,7 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/certificate" element={<Certificate />} />
         </Routes>
       )}
     </>

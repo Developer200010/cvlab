@@ -17,6 +17,7 @@ const frontendTech = [
   { name: "React", icon: <Smartphone /> },
   { name: "Tailwind CSS", icon: <Code /> },
   { name: "TypeScript", icon: <Code /> },
+  { name: "Next.js (CSR)", icon: <Code /> },
 ];
 
 const backendTech = [
@@ -26,6 +27,7 @@ const backendTech = [
   { name: "MongoDB", icon: <Database /> },
   { name: "Git/GitHub", icon: <Code /> },
   { name: "JWT Auth", icon: <Code /> },
+  { name: "Next.js (SSR)", icon: <Code /> },
 ];
 
 const fadeUp = {

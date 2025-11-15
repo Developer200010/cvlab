@@ -3,6 +3,14 @@ import { ChevronLeft, ChevronRight, ExternalLink, Puzzle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const projects = [
+   {
+    title: "CodeMentor AI",
+    tech: ["Next.js", "openRouter LLM", "HTML", "Tailwind", "Vercel", "AI"],
+    link: "https://code-mentor-ai-one.vercel.app/",
+    image: "/images/project13.png",
+    description:
+      "CodeMentor AI is an AI-powered coding assistant that helps developers by providing code suggestions, explanations, and debugging tips in real-time.",
+  },
   {
     title: "CVtube",
     tech: ["MERN stack", "Cloudinary", "streamifier", "multer", "Tailwind"],

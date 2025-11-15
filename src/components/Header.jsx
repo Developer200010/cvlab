@@ -19,6 +19,7 @@ const Header = () => {
           <Link to="/services" className="hover:text-amber-400 transition">Services</Link>
           <Link to="/projects" className="hover:text-amber-400 transition">Projects</Link>
           <Link to="/contact" className="hover:text-amber-400 transition">Contact</Link>
+          <Link to="/certificate" className="hover:text-amber-400 transition">Certificate</Link>
         </nav>
 
         {/* Hamburger Icon */}
@@ -37,6 +38,7 @@ const Header = () => {
             <Link to="/services" onClick={() => setIsOpen(false)} className="hover:text-amber-400">Services</Link>
             <Link to="/projects" onClick={() => setIsOpen(false)} className="hover:text-amber-400">Projects</Link>
             <Link to="/contact" onClick={() => setIsOpen(false)} className="hover:text-amber-400">Contact</Link>
+            <Link to="/certificate" onClick={() => setIsOpen(false)} className="hover:text-amber-400">Certificate</Link>
           </ul>
         </div>
       )}
