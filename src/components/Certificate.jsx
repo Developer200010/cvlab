@@ -77,7 +77,7 @@ export default function Certificates() {
           className="flex items-center justify-center gap-2 text-2xl sm:text-4xl sm:text-5xl font-extrabold mb-4 bg-gradient-to-r from-amber-400 to-teal-400 bg-clip-text text-transparent"
         >
           <Award className="w-10 h-10 text-amber-400 text-2xl sm:text-4xl" />
-          Featured Projects
+          Cerifications
         </motion.h2>
         </motion.div>
 
