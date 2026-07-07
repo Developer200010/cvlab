@@ -3,6 +3,14 @@ import { ChevronLeft, ChevronRight, ExternalLink, Puzzle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const projects = [
+  {
+    title: "pdf-merger",
+    tech: ["HTML", "CSS", "JS", "NEXT.JS"],
+    link: "https://pdf-merger-mu-seven.vercel.app/",
+    image: "/images/project14.png",
+    description:
+      "A clean weather app showing real-time forecasts based on location.",
+  },
    {
     title: "CodeMentor AI",
     tech: ["Next.js", "openRouter LLM", "HTML", "Tailwind", "Vercel", "AI"],
