@@ -6,6 +6,8 @@ import {
   Smartphone,
   TerminalSquare,
   Cloud,
+  Container,
+  Globe2,
   Rocket,
 } from "lucide-react";
 import { motion } from "framer-motion";
@@ -30,6 +32,15 @@ const backendTech = [
   { name: "Next.js (SSR)", icon: <Code /> },
 ];
 
+const appCloudTech = [
+  { name: "Flutter", icon: <Smartphone /> },
+  { name: "Dart", icon: <Code /> },
+  { name: "Firebase", icon: <Cloud /> },
+  { name: "Docker", icon: <Container /> },
+  { name: "Google Cloud", icon: <Cloud /> },
+  { name: "App Deployment", icon: <Rocket /> },
+];
+
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: (i = 0) => ({
@@ -45,7 +56,7 @@ const Services = () => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      className="min-h-screen bg-gradient-to-b from-gray-900 via-black to-gray-900 text-white py-16 sm:py-20 px-4 sm:px-6"
+      className="page-atmosphere min-h-screen text-white pt-28 pb-16 sm:pb-20 px-4 sm:px-6"
     >
       {/* ===== HEADER ===== */}
       <motion.div
@@ -62,7 +73,7 @@ const Services = () => {
       </motion.div>
 
       {/* ===== Service Cards ===== */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-12 max-w-7xl mx-auto px-2">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-10 max-w-7xl mx-auto px-2">
         {/* FRONTEND CARD */}
         <motion.div
           variants={fadeUp}
@@ -70,9 +81,9 @@ const Services = () => {
           className="bg-white/5 border border-white/10 p-6 sm:p-8 rounded-3xl shadow-2xl hover:shadow-amber-500/30 transition-all duration-500 hover:scale-[1.03] backdrop-blur-sm"
         >
           <div className="flex items-center space-x-3 mb-4">
-            <Smartphone className="text-amber-400 w-7 h-7 sm:w-8 sm:h-8" />
+            <Globe2 className="text-amber-400 w-7 h-7 sm:w-8 sm:h-8" />
             <h3 className="text-2xl sm:text-3xl font-bold text-amber-400">
-              Frontend Development
+              Web Development
             </h3>
           </div>
           <p className="text-gray-300 mb-6 text-sm sm:text-base leading-relaxed">
@@ -123,6 +134,40 @@ const Services = () => {
                 className="flex items-center space-x-3 bg-gray-800/60 p-3 rounded-xl hover:bg-teal-500/20 hover:translate-x-1 transition-all duration-300"
               >
                 <span className="text-teal-400">{tech.icon}</span>
+                <span className="font-medium text-sm sm:text-base">
+                  {tech.name}
+                </span>
+              </motion.li>
+            ))}
+          </ul>
+        </motion.div>
+
+        {/* APP & CLOUD CARD */}
+        <motion.div
+          variants={fadeUp}
+          custom={2}
+          className="bg-white/5 border border-white/10 p-6 sm:p-8 rounded-3xl shadow-2xl hover:shadow-blue-500/30 transition-all duration-500 hover:scale-[1.03] backdrop-blur-sm"
+        >
+          <div className="flex items-center space-x-3 mb-4">
+            <Smartphone className="text-blue-400 w-7 h-7 sm:w-8 sm:h-8" />
+            <h3 className="text-2xl sm:text-3xl font-bold text-blue-400">
+              App & Cloud
+            </h3>
+          </div>
+          <p className="text-gray-300 mb-6 text-sm sm:text-base leading-relaxed">
+            Building reliable mobile experiences and deploying them with
+            modern cloud and container technologies.
+          </p>
+
+          <ul className="grid grid-cols-2 gap-3 sm:gap-4">
+            {appCloudTech.map((tech, idx) => (
+              <motion.li
+                key={idx}
+                custom={idx}
+                variants={fadeUp}
+                className="flex items-center space-x-3 bg-gray-800/60 p-3 rounded-xl hover:bg-blue-500/20 hover:translate-x-1 transition-all duration-300"
+              >
+                <span className="text-blue-400">{tech.icon}</span>
                 <span className="font-medium text-sm sm:text-base">
                   {tech.name}
                 </span>

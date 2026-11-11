@@ -1,23 +1,22 @@
-// src/components/TypedText.jsx
 import { useEffect, useRef } from "react";
 import Typed from "typed.js";
 
-const TypedText = ({ strings, className }) => {
+const TypedText = ({ strings, className = "" }) => {
   const el = useRef(null);
   const typed = useRef(null);
 
   useEffect(() => {
     typed.current = new Typed(el.current, {
       strings,
-      typeSpeed: 45,         // ✨ Slower, more human typing
-      backSpeed: 25,         // ✨ Smooth backspacing
-      startDelay: 300,       // ⏱ Little pause before typing starts
-      backDelay: 1500,       // ⏱ Pause before deleting
-      smartBackspace: true,  // ✅ Only erase what's different
+      typeSpeed: 52,
+      backSpeed: 34,
+      startDelay: 450,
+      backDelay: 2200,
+      smartBackspace: true,
       loop: true,
-      shuffle: false,        // 🔁 Keep order consistent
-      cursorChar: "|",       // ✨ Custom blinking cursor
-      fadeOut: false,        // ❌ Disable fade (can look glitchy sometimes)
+      shuffle: false,
+      cursorChar: "▎",
+      fadeOut: false,
       showCursor: true,
     });
 
@@ -29,8 +28,9 @@ const TypedText = ({ strings, className }) => {
   return (
     <span
       ref={el}
-      className={`${className} typed-text`}
-    ></span>
+      aria-live="polite"
+      className={`${className} typed-text inline-block whitespace-nowrap max-w-full overflow-hidden align-bottom`}
+    />
   );
 };
 

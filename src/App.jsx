@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Loader from "./components/Loader";
 import Header from "./components/Header";
@@ -12,8 +12,14 @@ import Certificate from "./components/Certificate";
 function App() {
   const location = useLocation();
   const [loading, setLoading] = useState(false);
+  const isInitialLoad = useRef(true);
 
   useEffect(() => {
+    if (isInitialLoad.current) {
+      isInitialLoad.current = false;
+      return;
+    }
+
     setLoading(true);
 
     const timer = setTimeout(() => {

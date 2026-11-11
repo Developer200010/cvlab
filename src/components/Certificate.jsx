@@ -33,6 +33,12 @@ const certificates = [
     img: "/certificates/4.jpg",
     link: "https://www.udemy.com/certificate/UC-bac27ff0-3701-44e1-b65e-b38b8344937f/",
   },
+  {
+    title: "JavaScript (Intermediate)",
+    issuer: "HackerRank",
+    img: null,
+    link: "https://www.hackerrank.com/certificates/d56014ef4874",
+  },
 ];
 
 const containerVariants = {
@@ -61,7 +67,7 @@ const imgVariants = {
 
 export default function Certificates() {
   return (
-    <section className="min-h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-black text-white py-12 px-4 sm:px-6">
+    <section className="page-atmosphere min-h-screen text-white pt-28 pb-12 px-4 sm:px-6">
       <div className="mx-auto max-w-6xl">
         {/* Header with icon + subtle entrance motion */}
         <motion.div
@@ -77,7 +83,7 @@ export default function Certificates() {
           className="flex items-center justify-center gap-2 text-2xl sm:text-4xl sm:text-5xl font-extrabold mb-4 bg-gradient-to-r from-amber-400 to-teal-400 bg-clip-text text-transparent"
         >
           <Award className="w-10 h-10 text-amber-400 text-2xl sm:text-4xl" />
-          Cerifications
+          Featured Certifications
         </motion.h2>
         </motion.div>
 
@@ -98,13 +104,33 @@ export default function Certificates() {
             >
               {/* image area */}
               <div className="relative w-full h-56 sm:h-64 md:h-56 lg:h-52 bg-gray-900 flex items-center justify-center">
-                <motion.img
-                  variants={imgVariants}
-                  src={cert.img}
-                  alt={cert.title}
-                  className="w-full h-full object-contain p-4 transform transition-transform duration-700 group-hover:scale-105"
-                  loading="lazy"
-                />
+                {cert.img ? (
+                  <motion.img
+                    variants={imgVariants}
+                    src={cert.img}
+                    alt={cert.title}
+                    className="w-full h-full object-contain p-4 transform transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                ) : (
+                  <motion.div
+                    variants={imgVariants}
+                    role="img"
+                    aria-label={`${cert.issuer} ${cert.title} certificate`}
+                    className="m-4 flex h-[calc(100%-2rem)] w-[calc(100%-2rem)] flex-col items-center justify-center rounded-lg border border-emerald-300/30 bg-gradient-to-br from-slate-100 via-white to-emerald-50 px-5 text-center shadow-inner transition-transform duration-700 group-hover:scale-105"
+                  >
+                    <span className="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-black text-lg font-black text-emerald-400 ring-4 ring-emerald-500/20">
+                      HR
+                    </span>
+                    <span className="text-[10px] font-semibold uppercase tracking-[0.25em] text-gray-500">
+                      Certificate of Accomplishment
+                    </span>
+                    <span className="mt-3 border-y border-gray-300 px-4 py-1.5 text-sm font-bold text-gray-800">
+                      {cert.title}
+                    </span>
+                    <span className="mt-3 text-xs text-gray-500">Presented by HackerRank</span>
+                  </motion.div>
+                )}
 
                 {/* subtle overlay that appears on hover */}
                 <div className="absolute inset-0 pointer-events-none">

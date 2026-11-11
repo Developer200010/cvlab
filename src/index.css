@@ -1,1 +1,39 @@
 @import "tailwindcss";
+
+@media (max-width: 767px) {
+  body {
+    background: #050811;
+  }
+
+  body {
+    padding-bottom: 76px;
+  }
+}
+
+.page-atmosphere {
+  background-color: #050811;
+  background-image:
+    radial-gradient(circle at 10% 12%, rgba(37, 99, 235, 0.2), transparent 28rem),
+    radial-gradient(circle at 92% 78%, rgba(20, 184, 166, 0.13), transparent 30rem),
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: auto, auto, 72px 72px, 72px 72px;
+}
+
+.typed-cursor {
+  display: inline-block;
+  margin-left: 0.12em;
+  color: #fbbf24;
+  animation: typed-cursor-blink 0.9s steps(1, end) infinite;
+}
+
+@keyframes typed-cursor-blink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  46%,
+  100% {
+    opacity: 0;
+  }
+}

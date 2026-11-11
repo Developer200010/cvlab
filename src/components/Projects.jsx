@@ -4,6 +4,22 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const projects = [
   {
+    title: "MeeGrowth",
+    tech: ["React.js", "Express.js", "Node.js", "MongoDB", "GCP"],
+    link: "https://meegrowth.com/",
+    image: null,
+    description:
+      "A full-stack business listing platform with subscription-based onboarding, admin approvals, product and service listings, social posts, likes, comments, sharing, and GCP deployment.",
+  },
+  {
+    title: "Kittu Home Lands",
+    tech: ["Flutter", "Dart", "Firebase", "GCP"],
+    link: "https://kittuhomelands.com/",
+    image: "/images/kittu-home-lands.png",
+    description:
+      "A property listing and selling application that helps buyers discover properties while enabling sellers and agents to manage categorized listings and property details.",
+  },
+  {
     title: "pdf-merger",
     tech: ["HTML", "CSS", "JS", "NEXT.JS"],
     link: "https://pdf-merger-mu-seven.vercel.app/",
@@ -107,17 +123,19 @@ const Projects = () => {
   const [startIndex, setStartIndex] = useState(0);
   const visibleCount = 3;
   const total = projects.length;
+  const pageCount = Math.ceil(total / visibleCount);
+  const currentPage = Math.floor(startIndex / visibleCount);
 
-  const next = () => setStartIndex((prev) => (prev + visibleCount) % total);
-  const prev = () => setStartIndex((prev) => (prev - visibleCount + total) % total);
+  const next = () =>
+    setStartIndex(((currentPage + 1) % pageCount) * visibleCount);
+  const prev = () =>
+    setStartIndex(((currentPage - 1 + pageCount) % pageCount) * visibleCount);
+  const goToPage = (page) => setStartIndex(page * visibleCount);
 
-  const visibleProjects = [];
-  for (let i = 0; i < visibleCount; i++) {
-    visibleProjects.push(projects[(startIndex + i) % total]);
-  }
+  const visibleProjects = projects.slice(startIndex, startIndex + visibleCount);
 
   return (
-    <section className="min-h-screen bg-gradient-to-b from-gray-900 via-black to-gray-900 text-white py-20 px-4 sm:px-6 relative overflow-hidden">
+    <section className="page-atmosphere min-h-screen text-white pt-28 pb-20 px-4 sm:px-6 relative overflow-hidden">
       <div className="max-w-7xl mx-auto text-center">
         {/* ===== Header ===== */}
         <motion.h2
@@ -154,28 +172,45 @@ const Projects = () => {
                   initial="hidden"
                   animate="visible"
                   exit="exit"
-                  className="group bg-white/5 backdrop-blur-lg border border-white/10 rounded-lg shadow-2xl hover:shadow-amber-500/30 overflow-hidden transition-all duration-500"
+                  className="group flex h-full flex-col bg-white/5 backdrop-blur-lg border border-white/10 rounded-lg shadow-2xl hover:shadow-amber-500/30 overflow-hidden transition-all duration-500"
                 >
                   {/* Image */}
                   <div className="overflow-hidden relative">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-48 sm:h-56 lg:h-60 object-cover group-hover:scale-110 transition-transform duration-700"
-                    />
+                    {project.image ? (
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-48 sm:h-56 lg:h-60 object-cover group-hover:scale-110 transition-transform duration-700"
+                      />
+                    ) : (
+                      <div
+                        role="img"
+                        aria-label={`${project.title} project preview`}
+                        className="w-full h-48 sm:h-56 lg:h-60 flex items-center justify-center bg-gradient-to-br from-emerald-500 via-teal-500 to-cyan-700 group-hover:scale-110 transition-transform duration-700"
+                      >
+                        <div className="text-center">
+                          <div className="mx-auto mb-3 w-16 h-16 rounded-2xl border border-white/40 bg-white/15 flex items-center justify-center shadow-xl">
+                            <span className="text-3xl font-black text-white">MG</span>
+                          </div>
+                          <span className="text-2xl font-extrabold tracking-wide text-white">
+                            MeeGrowth
+                          </span>
+                        </div>
+                      </div>
+                    )}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   </div>
 
                   {/* Info */}
-                  <div className="p-6 flex flex-col space-y-4 text-left">
+                  <div className="flex flex-1 flex-col p-6 text-left">
                     <h3 className="text-2xl font-bold text-amber-400 group-hover:text-teal-400 transition-colors">
                       {project.title}
                     </h3>
-                    <p className="text-gray-300 text-sm leading-relaxed">
+                    <p className="mt-4 min-h-[84px] text-gray-300 text-sm leading-relaxed">
                       {project.description}
                     </p>
 
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex min-h-[60px] flex-wrap content-start gap-2">
                       {project.tech.map((tech, idx) => (
                         <span
                           key={idx}
@@ -190,7 +225,7 @@ const Projects = () => {
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mt-auto inline-flex items-center gap-2 text-amber-400 hover:text-teal-400 transition-all font-semibold"
+                      className="mt-auto inline-flex min-h-6 items-center gap-2 pt-4 text-amber-400 hover:text-teal-400 transition-all font-semibold"
                     >
                       View Project <ExternalLink size={18} />
                     </a>
@@ -201,11 +236,13 @@ const Projects = () => {
           </AnimatePresence>
 
           {/* ===== Navigation Buttons ===== */}
-          <div className="flex justify-center gap-6 mt-12">
+          <div className="mt-12 flex flex-col items-center gap-5">
+            <div className="flex items-center gap-4">
             <motion.button
               whileHover={{ scale: 1.1, background: "linear-gradient(to right, #f59e0b, #14b8a6)" }}
               whileTap={{ scale: 0.95 }}
               onClick={prev}
+              aria-label="Previous projects page"
               className="p-3 sm:p-4 rounded-full bg-gradient-to-r from-amber-500/30 to-teal-500/30 hover:from-amber-500 hover:to-teal-500 transition-all shadow-lg"
             >
               <ChevronLeft className="w-6 h-6 text-white" />
@@ -215,10 +252,33 @@ const Projects = () => {
               whileHover={{ scale: 1.1, background: "linear-gradient(to right, #f59e0b, #14b8a6)" }}
               whileTap={{ scale: 0.95 }}
               onClick={next}
+              aria-label="Next projects page"
               className="p-3 sm:p-4 rounded-full bg-gradient-to-r from-amber-500/30 to-teal-500/30 hover:from-amber-500 hover:to-teal-500 transition-all shadow-lg"
             >
               <ChevronRight className="w-6 h-6 text-white" />
             </motion.button>
+            </div>
+
+            <div className="flex items-center gap-3" aria-label="Project pagination">
+              {Array.from({ length: pageCount }, (_, page) => (
+                <button
+                  key={page}
+                  type="button"
+                  onClick={() => goToPage(page)}
+                  aria-label={`Go to projects page ${page + 1}`}
+                  aria-current={currentPage === page ? "page" : undefined}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    currentPage === page
+                      ? "w-8 bg-gradient-to-r from-amber-400 to-teal-400"
+                      : "w-2 bg-white/25 hover:bg-white/60"
+                  }`}
+                />
+              ))}
+            </div>
+
+            <span className="font-mono text-xs font-semibold tracking-[0.2em] text-gray-400">
+              PAGE {String(currentPage + 1).padStart(2, "0")} / {String(pageCount).padStart(2, "0")}
+            </span>
           </div>
         </div>
       </div>
